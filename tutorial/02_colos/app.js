@@ -1,4 +1,3 @@
-// .getElementById=.querySelector
 const bgBtn = document.getElementById("bgBtn");
 const hexBtn = document.getElementById("hexBtn");
 const color = document.querySelector(".color");
