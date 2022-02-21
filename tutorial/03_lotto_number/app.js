@@ -11,14 +11,31 @@ let count = 10;
 function checkGame() {
   count--;
   if (count <= 0) {
-    snackBar();
     dimm.classList.add("active");
+    snackBar();
   }
 }
 
 function snackBar() {
-  const snackBar = new snackBar();
-  snackbar.make("massage", ["안녕하세요", ""]);
+  const snackbar = new SnackBar();
+  snackbar.make(
+    "message",
+    [
+      "안녕하세요",
+      "",
+      // vertical position
+      "bottom",
+      // horizontal position
+      "center",
+    ],
+    null
+  );
+
+  snackbar.action(function () {
+    snackbar.close();
+    dimm.classList.remove("active");
+    resetGame();
+  });
 }
 
 function addList() {
@@ -27,6 +44,7 @@ function addList() {
 
   lottoList.forEach((item) => {
     const p = document.createElement("p");
+
     item.forEach((num) => {
       const span = document.createElement("span");
       span.textContent = num;
@@ -51,7 +69,9 @@ function startGame() {
   while (lottoNumbers.length < 6) {
     const num = Math.floor(Math.random() * 45) + 1;
 
-    if (lottoNumbers.indexOf(num) === -1) lottoNumbers.push(num);
+    if (lottoNumbers.indexOf(num) === -1) {
+      lottoNumbers.push(num);
+    }
   }
   paintNumber();
   addList();
@@ -59,6 +79,7 @@ function startGame() {
 }
 
 function resetGame() {
+  count = 10;
   lottoNumbers = [];
   lottoList = [];
   list.innerHTML = "";

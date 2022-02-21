@@ -59,7 +59,7 @@ button:hover {
   font-size: 1rem;
   padding: 0.6rem 0;
   text-align: center;
-  color: orange;
+  color: #fff;
   display: flex;
   justify-content: center;
   gap: 6px;
@@ -74,15 +74,20 @@ button:hover {
   line-height: 30px;
 }
 
-.dim {
+.snackbar {
+  height: 60px;
+}
+
+.dimm {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   display: none;
 }
 
-.activer {
+.active {
+  display: block;
 }
